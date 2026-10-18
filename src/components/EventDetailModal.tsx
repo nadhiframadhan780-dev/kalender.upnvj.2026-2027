@@ -1,5 +1,5 @@
 import React from 'react';
-import { AcademicEvent, CalendarDayInfo, CATEGORIES } from '../data/calendarData';
+import { AcademicEvent, CalendarDayInfo, getCategoryInfo } from '../data/calendarData';
 import { Calendar, Clock, X, ExternalLink, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 interface EventDetailModalProps {
@@ -85,7 +85,7 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
             </div>
           ) : (
             dayInfo.events.map((evt) => {
-              const cat = CATEGORIES[evt.category];
+              const cat = getCategoryInfo(evt.category);
               return (
                 <div
                   key={evt.id}

@@ -11,7 +11,8 @@ export type EventCategory =
   | 'pkkmb'
   | 'mutu'
   | 'maba'
-  | 'tugas_akhir';
+  | 'tugas_akhir'
+  | 'akademik';
 
 export interface CategoryInfo {
   id: EventCategory;
@@ -169,7 +170,25 @@ export const CATEGORIES: Record<EventCategory, CategoryInfo> = {
     dotColor: 'bg-emerald-700',
     hex: '#047857',
   },
+  akademik: {
+    id: 'akademik',
+    name: 'Kegiatan Akademik',
+    badgeLabel: 'Akademik',
+    colorName: 'Hijau Akademik',
+    bgClass: 'bg-emerald-50 hover:bg-emerald-100',
+    borderClass: 'border-emerald-500',
+    textClass: 'text-emerald-950',
+    dotColor: 'bg-emerald-600',
+    hex: '#059669',
+  },
 };
+
+export function getCategoryInfo(category?: EventCategory | string): CategoryInfo {
+  if (category && CATEGORIES[category as EventCategory]) {
+    return CATEGORIES[category as EventCategory];
+  }
+  return CATEGORIES.kuliah;
+}
 
 export interface AcademicEvent {
   id: string;

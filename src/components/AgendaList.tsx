@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { 
   AcademicEvent, 
-  CATEGORIES, 
+  getCategoryInfo, 
   EventCategory 
 } from '../data/calendarData';
 import { 
@@ -94,7 +94,7 @@ export const AgendaList: React.FC<AgendaListProps> = ({
   };
 
   const renderEventCard = (evt: AcademicEvent) => {
-    const cat = CATEGORIES[evt.category];
+    const cat = getCategoryInfo(evt.category);
     const isSelected = highlightedEventId === evt.id;
 
     return (

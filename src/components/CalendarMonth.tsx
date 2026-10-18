@@ -1,5 +1,5 @@
 import React from 'react';
-import { MonthDefinition, CalendarDayInfo, CATEGORIES, EventCategory, AcademicEvent } from '../data/calendarData';
+import { MonthDefinition, CalendarDayInfo, getCategoryInfo, EventCategory, AcademicEvent } from '../data/calendarData';
 import { Info, Calendar as CalendarIcon } from 'lucide-react';
 
 interface CalendarMonthProps {
@@ -167,7 +167,7 @@ export const CalendarMonth: React.FC<CalendarMonthProps> = ({
           <div className="space-y-1">
             {month.events.length > 0 ? (
               month.events.map((evt) => {
-                const cat = CATEGORIES[evt.category];
+                const cat = getCategoryInfo(evt.category);
                 const isEvtSelected = highlightedEventId === evt.id;
                 return (
                   <button

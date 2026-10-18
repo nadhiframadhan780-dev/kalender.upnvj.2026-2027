@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sparkles, Calendar, Clock, AlertCircle } from 'lucide-react';
-import { AcademicEvent, CATEGORIES } from '../data/calendarData';
+import { AcademicEvent, getCategoryInfo } from '../data/calendarData';
 
 interface UpcomingMilestonesProps {
   events: AcademicEvent[];
@@ -48,7 +48,7 @@ export const UpcomingMilestones: React.FC<UpcomingMilestonesProps> = ({ events, 
       {/* Horizontal scrolling pill chips for high mobile comfort */}
       <div className="flex items-center gap-2.5 overflow-x-auto pb-1 pt-0.5 no-scrollbar">
         {milestoneEvents.slice(0, 6).map((evt) => {
-          const cat = CATEGORIES[evt.category];
+          const cat = getCategoryInfo(evt.category);
           return (
             <button
               key={evt.id}
