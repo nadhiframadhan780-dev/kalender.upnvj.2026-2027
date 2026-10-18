@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Kalender Akademik UPNVJ 2026/2027 | Kampus Bela Negara</title>
+    <meta name="description" content="Kalender Akademik Resmi Universitas Pembangunan Nasional 'Veteran' Jakarta Tahun Akademik 2026/2027. Keputusan Rektor Nomor 919/UN61/HK.03.01/2026." />
+    <meta name="keywords" content="UPNVJ, Kalender Akademik UPNVJ 2026/2027, UPN Veteran Jakarta, KRS UPNVJ, UTS, UAS, Wisuda, Jadwal Kuliah UPNVJ" />
+    
+    <!-- OpenGraph / Social -->
+    <meta property="og:title" content="Kalender Akademik UPN Veteran Jakarta 2026/2027" />
+    <meta property="og:description" content="Kalender Akademik Resmi UPNVJ Semester Ganjil & Genap 2026/2027. Interaktif, mudah dibaca, dan sinkronisasi agenda akademik." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/icon-512.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kalender Akademik UPN Veteran Jakarta 2026/2027" />
+    <meta name="twitter:description" content="Jadwal lengkap KRS, Perkuliahan, UTS, UAS, Wisuda, dan Libur UPNVJ TA 2026/2027." />
+    <meta name="twitter:image" content="/icon-512.png" />
+
+    <!-- Theme & Icons -->
+    <meta name="theme-color" content="#065f46" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Kalender UPNVJ" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Fonts: Plus Jakarta Sans for pristine modern Indonesian university styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#f8faf9] text-slate-800 antialiased selection:bg-emerald-600 selection:text-white min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.warn('SW registration skipped:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+

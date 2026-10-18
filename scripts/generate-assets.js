@@ -1,0 +1,124 @@
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+
+const publicDir = path.resolve('public');
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+
+// SVG of UPN Veteran Jakarta Emblem
+const upnvjSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#0f5132"/>
+      <stop offset="70%" stop-color="#064025"/>
+      <stop offset="100%" stop-color="#022c19"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE885"/>
+      <stop offset="35%" stop-color="#D4AF37"/>
+      <stop offset="65%" stop-color="#AA771C"/>
+      <stop offset="100%" stop-color="#FDF0A6"/>
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2A3"/>
+      <stop offset="25%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8B6508"/>
+      <stop offset="75%" stop-color="#F5D061"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#B91C1C"/>
+      <stop offset="40%" stop-color="#DC2626"/>
+      <stop offset="75%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background circular luxury base -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGlow)" filter="url(#shadow)"/>
+  <circle cx="256" cy="256" r="236" fill="none" stroke="url(#goldGrad)" stroke-width="4" opacity="0.8"/>
+  <circle cx="256" cy="256" r="226" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+
+  <!-- Shield pentagon outer -->
+  <path d="M 256,48 L 416,160 L 356,396 L 256,448 L 156,396 L 96,160 Z" 
+        fill="#043c22" stroke="url(#goldBorder)" stroke-width="10" stroke-linejoin="round" filter="url(#shadow)"/>
+  <path d="M 256,64 L 400,168 L 346,384 L 256,432 L 166,384 L 112,168 Z" 
+        fill="#022b17" stroke="url(#goldGrad)" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Gold Ring for Text -->
+  <circle cx="256" cy="250" r="145" fill="none" stroke="url(#goldBorder)" stroke-width="36" opacity="0.95"/>
+  <circle cx="256" cy="250" r="126" fill="#04351d" stroke="url(#goldGrad)" stroke-width="2"/>
+  <circle cx="256" cy="250" r="164" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+
+  <!-- Top star -->
+  <polygon points="256,134 260,146 273,146 263,153 266,165 256,158 246,165 249,153 239,146 252,146" 
+           fill="#FFDD00" stroke="#B45309" stroke-width="1"/>
+
+  <!-- Lotus & Flame Motif -->
+  <!-- Left flames -->
+  <path d="M 200,290 C 180,260 178,210 206,190 C 210,215 220,230 226,240 C 216,210 230,180 242,165 C 244,195 240,225 248,245 Z" fill="url(#flameGrad)" />
+  <path d="M 185,260 C 170,240 170,200 195,185 C 190,210 205,225 212,235 Z" fill="#DC2626" opacity="0.85"/>
+
+  <!-- Right flames -->
+  <path d="M 312,290 C 332,260 334,210 306,190 C 302,215 292,230 286,240 C 296,210 282,180 270,165 C 268,195 272,225 264,245 Z" fill="url(#flameGrad)" />
+  <path d="M 327,260 C 342,240 342,200 317,185 C 322,210 307,225 300,235 Z" fill="#DC2626" opacity="0.85"/>
+
+  <!-- Lotus Petals (Center White Blossom) -->
+  <!-- Center Petal -->
+  <path d="M 256,185 C 240,215 240,260 256,285 C 272,260 272,215 256,185 Z" fill="url(#whiteGrad)" stroke="#94A3B8" stroke-width="1"/>
+  <!-- Left Petal -->
+  <path d="M 252,200 C 230,225 225,260 248,285 C 238,260 242,230 252,200 Z" fill="url(#whiteGrad)" stroke="#CBD5E1" stroke-width="1"/>
+  <!-- Right Petal -->
+  <path d="M 260,200 C 282,225 287,260 264,285 C 274,260 270,230 260,200 Z" fill="url(#whiteGrad)" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- Pedestal under lotus -->
+  <path d="M 226,285 L 286,285 L 290,296 L 222,296 Z" fill="#D4AF37" stroke="#854D0E" stroke-width="1.5"/>
+  <path d="M 218,296 L 294,296 L 290,303 L 222,303 Z" fill="#854D0E"/>
+
+  <!-- Ribbon Widya Mwat Yasa -->
+  <path d="M 180,312 Q 256,324 332,312 L 328,328 Q 256,340 184,328 Z" fill="url(#goldGrad)" stroke="#854D0E" stroke-width="1.5"/>
+  <text x="256" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="9" fill="#1E293B" letter-spacing="2">WIDYA MWAT YASA</text>
+
+  <!-- Curving text inside ring -->
+  <path id="textArcTop" d="M 140,250 A 116,116 0 1,1 372,250" fill="none" />
+  <path id="textArcBottom" d="M 350,260 A 116,116 0 0,1 162,260" fill="none" />
+
+  <text font-family="'Times New Roman', serif" font-weight="bold" font-size="12.5" fill="#1C1917" letter-spacing="1.2">
+    <textPath href="#textArcTop" startOffset="50%" text-anchor="middle">
+      UNIVERSITAS PEMBANGUNAN NASIONAL VETERAN
+    </textPath>
+  </text>
+  <text font-family="'Times New Roman', serif" font-weight="bold" font-size="14" fill="#1C1917" letter-spacing="3">
+    <textPath href="#textArcBottom" startOffset="50%" text-anchor="middle">
+      JAKARTA
+    </textPath>
+  </text>
+</svg>`;
+
+async function build() {
+  fs.writeFileSync(path.join(publicDir, 'logo.svg'), upnvjSvg);
+  fs.writeFileSync(path.join(publicDir, 'favicon.svg'), upnvjSvg);
+
+  const svgBuffer = Buffer.from(upnvjSvg);
+
+  await sharp(svgBuffer).resize(512, 512).png().toFile(path.join(publicDir, 'icon-512.png'));
+  await sharp(svgBuffer).resize(192, 192).png().toFile(path.join(publicDir, 'icon-192.png'));
+  await sharp(svgBuffer).resize(180, 180).png().toFile(path.join(publicDir, 'apple-touch-icon.png'));
+  await sharp(svgBuffer).resize(64, 64).png().toFile(path.join(publicDir, 'favicon.png'));
+  console.log('Successfully generated PWA and brand icons');
+}
+
+build().catch(err => {
+  console.error(err);
+  process.exit(1);
+});

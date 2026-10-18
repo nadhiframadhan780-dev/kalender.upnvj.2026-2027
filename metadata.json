@@ -1,0 +1,6 @@
+{
+  "name": "Kalender Akademik UPNVJ 2026/2027",
+  "description": "Kalender Akademik Resmi UPN Veteran Jakarta Tahun Akademik 2026/2027 Kampus Bela Negara, dilengkapi penanda warna tanggal interaktif, pencarian jadwal, dan sinkronisasi agenda.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
