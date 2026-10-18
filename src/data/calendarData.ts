@@ -184,10 +184,20 @@ export const CATEGORIES: Record<EventCategory, CategoryInfo> = {
 };
 
 export function getCategoryInfo(category?: EventCategory | string): CategoryInfo {
-  if (category && CATEGORIES[category as EventCategory]) {
+  if (category && typeof CATEGORIES === 'object' && CATEGORIES[category as EventCategory]) {
     return CATEGORIES[category as EventCategory];
   }
-  return CATEGORIES.kuliah;
+  return {
+    id: 'kuliah',
+    name: 'Kegiatan Perkuliahan',
+    badgeLabel: 'Kuliah Aktif',
+    colorName: 'Hijau Muda',
+    bgClass: 'bg-emerald-100 hover:bg-emerald-200',
+    borderClass: 'border-emerald-400',
+    textClass: 'text-emerald-900',
+    dotColor: 'bg-emerald-500',
+    hex: '#4ade80',
+  };
 }
 
 export interface AcademicEvent {

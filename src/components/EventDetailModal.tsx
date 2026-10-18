@@ -92,8 +92,8 @@ export const EventDetailModal: React.FC<EventDetailModalProps> = ({
                   className="p-4 rounded-2xl border border-slate-200 bg-slate-50/60 hover:bg-emerald-50/50 hover:border-emerald-300 transition-all"
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md ${cat.bgClass} ${cat.textClass} border ${cat.borderClass}`}>
-                      {cat.badgeLabel}
+                    <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md ${cat?.bgClass || 'bg-emerald-100'} ${cat?.textClass || 'text-emerald-950'} border ${cat?.borderClass || 'border-emerald-300'}`}>
+                      {cat?.badgeLabel || 'Akademik'}
                     </span>
                     <span className="text-xs font-bold text-emerald-800 bg-white px-2 py-0.5 rounded-md border border-slate-200">
                       {evt.dateStr}

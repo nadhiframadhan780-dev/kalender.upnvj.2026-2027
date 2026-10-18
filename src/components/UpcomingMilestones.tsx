@@ -56,8 +56,8 @@ export const UpcomingMilestones: React.FC<UpcomingMilestonesProps> = ({ events, 
               className="flex-shrink-0 group flex flex-col items-start p-2.5 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-emerald-50/80 hover:border-emerald-300 transition-all text-left max-w-[210px] sm:max-w-[240px]"
             >
               <div className="flex items-center gap-1.5 mb-1 w-full justify-between">
-                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md ${cat.bgClass} ${cat.textClass} border ${cat.borderClass}`}>
-                  {cat.badgeLabel}
+                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md ${cat?.bgClass || 'bg-emerald-100'} ${cat?.textClass || 'text-emerald-900'} border ${cat?.borderClass || 'border-emerald-300'}`}>
+                  {cat?.badgeLabel || 'Akademik'}
                 </span>
                 <span className="text-[10px] font-semibold text-emerald-700 flex items-center gap-1">
                   <Clock className="w-3 h-3" />

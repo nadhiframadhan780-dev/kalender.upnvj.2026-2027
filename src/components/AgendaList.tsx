@@ -111,8 +111,8 @@ export const AgendaList: React.FC<AgendaListProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
           {/* Category badge & Semester */}
           <div className="flex items-center flex-wrap gap-1.5">
-            <span className={`text-[10px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-md ${cat.bgClass} ${cat.textClass} border ${cat.borderClass}`}>
-              {cat.badgeLabel}
+            <span className={`text-[10px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded-md ${cat?.bgClass || 'bg-emerald-100'} ${cat?.textClass || 'text-emerald-950'} border ${cat?.borderClass || 'border-emerald-300'}`}>
+              {cat?.badgeLabel || 'Akademik'}
             </span>
             <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
               {evt.semester === 'both' ? 'Smt Ganjil & Genap' : evt.semester === 'ganjil' ? 'Smt Ganjil' : 'Smt Genap'}

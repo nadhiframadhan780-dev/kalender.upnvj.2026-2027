@@ -165,9 +165,9 @@ export const CalendarMonth: React.FC<CalendarMonthProps> = ({
             <span className="text-[11px] uppercase tracking-wider">Catatan Penting Bulan Ini:</span>
           </div>
           <div className="space-y-1">
-            {month.events.length > 0 ? (
+            {month.events && month.events.length > 0 ? (
               month.events.map((evt) => {
-                const cat = getCategoryInfo(evt.category);
+                const cat = getCategoryInfo(evt?.category);
                 const isEvtSelected = highlightedEventId === evt.id;
                 return (
                   <button
@@ -177,7 +177,7 @@ export const CalendarMonth: React.FC<CalendarMonthProps> = ({
                       isEvtSelected ? 'bg-amber-100 text-amber-950 font-semibold' : 'hover:bg-slate-100 text-slate-700'
                     }`}
                   >
-                    <span className={`w-2 h-2 rounded-full mt-1 flex-shrink-0 ${cat.dotColor}`}></span>
+                    <span className={`w-2 h-2 rounded-full mt-1 flex-shrink-0 ${cat?.dotColor || 'bg-emerald-500'}`}></span>
                     <span className="font-semibold text-slate-900 flex-shrink-0">{evt.dateStr.split(' ')[0]}:</span>
                     <span className="line-clamp-1">{evt.title}</span>
                   </button>

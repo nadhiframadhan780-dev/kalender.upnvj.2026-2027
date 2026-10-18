@@ -10,7 +10,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
   const [copied, setCopied] = useState(false);
   if (!isOpen) return null;
 
-  const currentUrl = window.location.href;
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const shareText = `Halo! Ini link Kalender Akademik Resmi UPN "Veteran" Jakarta TA 2026/2027 lengkap dengan penanda warna dan jadwal KRS/UTS/UAS/Wisuda: ${currentUrl}`;
 
   const handleCopy = () => {
